@@ -49,6 +49,7 @@ def getdistPath(path,dist,ciudades):
 def subsets(size,lista):
     return itertools.combinations(lista, size)
 
+#encuentra la distancia minima de k  a una ciudad
 def minDist(s,k,c,dist,ciudades):
     minval=100000
     s=list(s)
@@ -61,11 +62,13 @@ def minDist(s,k,c,dist,ciudades):
 
     return minval,pos
     
+#Retorna el ciclo mas corto del set
 def shortestPath(c,dist,ciudades):
     val = minDist(ciudades,ciudades[0],c,dist,ciudades)
     path=getpath(c,val[1],ciudades)
     return [val[0],path]
 
+#Contruye el camino 
 def getpath(c,initial,ciudades):
     path=[]
     path.append(ciudades[int(initial[-1])])
@@ -80,7 +83,7 @@ def getpath(c,initial,ciudades):
     return path
 
 
-
+##Version dinamica del algoritmo
 def TSP (ciudades,grafo):
     
     n= grafo.shape[0]
@@ -97,7 +100,8 @@ def TSP (ciudades,grafo):
    
     return shortestPath(C,grafo,ciudades)
 
-
+##Version de fuerza bruta del algoritmo
+##Revisa todas las posibles combinaciones
 def bruteforce(ciudades,dist):
     minval=1000
     minpath=[]
