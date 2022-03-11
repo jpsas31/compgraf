@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import networkx as nx
 import math
+import numpy
 import csv
 import random as rand
 import random
@@ -159,10 +160,104 @@ def buildG(G, file_, delimiter_):
             #line format: u,v
                G.add_edge(int(line[0]),int(line[1]),weight=1.0)
         if line[0] == "*Arcs" : Arcos = 1
-        cont = 1    
+        cont = 1
 
 
-def main(argv):
+def graphInfecciones(infecciones):
+  fig, ax = plt.subplots(1, 1)
+ 
+  rects = ax.patches
+  labels = [f's{x}' for x in range(len(infecciones))]
+  ax.bar(numpy.arange(len(labels)),infecciones,align='center', alpha=0.5)
+  plt.xticks(numpy.arange(len(labels)), labels)
+  plt.show()
+
+def mejorSeleccion(argv):
+  if len(argv) < 2:
+        sys.stderr.write("Usage: %s <input graph>\n" % (argv[0],))
+        return 1
+
+  graph_fn = argv[1]
+  maxInfeccion=-1
+  infecciones=[]
+  semilla=[]
+  maxSemillas=[]
+  for i in range(30):
+    infec,semillas = infeccion(graph_fn,20,3)
+    infecciones.append(infec)
+    semilla.append(semillas)
+    if(infec> maxInfeccion):
+      maxInfeccion=infec
+      maxSemillas=semillas
+  print(maxInfeccion,maxSemillas)
+  print(infecciones)
+  graphInfecciones(infecciones)
+  
+  return maxInfeccion,maxSemillas
+
+
+def infeccion(archivo, numSemillas,numPasos):
+    
+    graph_fn = archivo
+    G = nx.Graph()  #let's create the graph first
+    G=nx.Graph(nx.read_pajek(graph_fn))
+    Nodos = G.nodes()
+    n = G.number_of_nodes() 
+    semillas=random.choices(list(Nodos),k=numSemillas)
+    diffusion = independent_cascade(G, semillas, steps = numPasos)
+
+    infectados = [] # cantidad de infectados
+    rataRec = 0.2 # tasa de recuperacion
+
+    # creamos un solo paso de infeccion, para empezar a iterar desde un comienzo con una casacada de infectados.
+    for i in diffusion:
+        for j in i: infectados.append(j)
+
+    tasaRec = 1 # indica cuantos agentes se debe recuperar por iteraion.
+    diffu = []
+    RecSuc = [] #Guarda los recuperados y no deja que se vulevan a infectar
+    iteraciones=10
+    while (iteraciones>0):
+          diffu.append(infectados)
+          #empezamos a recupear segun tasa 
+          tasaRec = int(len(infectados)*rataRec)
+          suceptibles = [] # cantidad de recuperados que pueden volver a infectarse
+          for i in range(tasaRec):
+              suceptibles.append(infectados.pop(random.randrange(len(infectados))))
+          #controlamos los recuperados
+          for i in suceptibles: RecSuc.append(i)
+          #se vuelve y se coloca los nuevos focos de infeccion a la funcion infeccion.
+          diffusion = independent_cascade(G, infectados, steps = 1)
+          #diffu.append(suceptibles)
+          infectados = []
+          #algoritmo que exluye de los infectados los nodos recuperados.
+          ControlRec = 0
+          for i in diffusion:
+              infectados.extend(i)
+
+          Recuperados = []
+          for i in RecSuc:
+              if i not in Recuperados:
+                 Recuperados.append(i)
+          diffu.append(Recuperados)
+          iteraciones-=1
+    
+    infectados = 0
+    suceptil = 0
+    recuperados = 0
+    sanos = n     
+    conts = 0
+    infect = []
+    sucep = []
+    Recup = [0]
+    tics = []
+    infect.append(infectados)
+    sucep.append(sanos)
+    tics.append(conts)
+    
+    return len(diffu[-1]),semillas
+
+def mainDibujo(argv):
     
     if len(argv) < 2:
         sys.stderr.write("Usage: %s <input graph>\n" % (argv[0],))
@@ -170,16 +265,11 @@ def main(argv):
 
     graph_fn = argv[1]
     G = nx.Graph()  #let's create the graph first
-    buildG(G, graph_fn, ' ')
-    
+    G=nx.Graph(nx.read_pajek(graph_fn))
     Nodos = G.nodes()
-     
-    n = G.number_of_nodes()    #|V|
-    print(n)
+    n = G.number_of_nodes() 
   
-    diffusion = independent_cascade(G, [191], steps = 1)
-    print(diffusion)
-
+    diffusion = independent_cascade(G,['Oneill, M', 'Foster, I', 'Winful, H', 'Buchel, C', 'Selkov, E', 'Hoffman, A', 'Friedlander, G', 'Varian, H', 'Geisel, T', 'Shefi, O', 'Schrag, S', 'Mehring, C', 'Mel, B', 'Pothen, A', 'Narayan, V', 'Levy, W', 'Munoz, M', 'Karimipour, V', 'Carroll, T', 'Maghoul, F'], steps = 3)
 
     infectados = [] # cantidad de infectados
     rataRec = 0.2 # tasa de recuperacion
@@ -226,16 +316,16 @@ def main(argv):
     
     labels={}
     cont = 1
-    for i in G.nodes():
-        colr = float(cont)/n
-        nx.draw_networkx_nodes(G, pos, [i] , node_size = 100, node_color = 'w')
-        labels[i] = i
-        cont += 1
-    nx.draw_networkx_labels(G,pos,labels,font_size=5)        
-    nx.draw_networkx_edges(G,pos, alpha=0.5)
+    # for i in G.nodes():
+    #     colr = float(cont)/n
+    #     nx.draw_networkx_nodes(G, pos, [i] , node_size = 100, node_color = 'w')
+    #     labels[i] = i
+    #     cont += 1
+    # nx.draw_networkx_labels(G,pos,labels,font_size=5)        
+    # nx.draw_networkx_edges(G,pos, alpha=0.5)
 
-    plt.ion()
-    plt.draw()
+    # plt.ion()
+    # plt.draw()
     infectados = 0
     suceptil = 0
     recuperados = 0
@@ -253,9 +343,9 @@ def main(argv):
     for i in diffu:
         if cont % 2 == 0:
            infectados = len(i) 
-           nx.draw_networkx_nodes(G, pos, i , node_size = 250, node_color = 'r')
-           plt.pause(0.001)
-           plt.draw()
+          #  nx.draw_networkx_nodes(G, pos, i , node_size = 250, node_color = 'r')
+          #  plt.pause(0.001)
+          #  plt.draw()
         if cont % 2 != 0:
            suceptil = len(i)
            conts += 1
@@ -264,9 +354,9 @@ def main(argv):
            infect.append(infectados)
            sucep.append(sanos)
            Recup.append(suceptil)           
-           nx.draw_networkx_nodes(G, pos, i , node_size = 300, node_color = 'b')
-           plt.pause(0.001)
-           plt.draw()
+          #  nx.draw_networkx_nodes(G, pos, i , node_size = 300, node_color = 'b')
+          #  plt.pause(0.001)
+          #  plt.draw()
         cont += 1
 
     print ('infectados: ', infectados, ' sanos: ', sanos," Suceptibles: ", suceptil,  ' Etapas: ', conts)
@@ -304,4 +394,4 @@ def main(argv):
     print (time.strftime("%I:%M:%S"))
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv))
+    sys.exit(mainDibujo(sys.argv))

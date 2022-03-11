@@ -2,7 +2,7 @@
 import networkx as nx
 import math
 import csv
-import random as rand
+import numpy
 import random
 import sys
 import time
@@ -138,31 +138,90 @@ def _prop_success(G, src, dest):
   return random.random() <= G[src][dest]['act_prob']
 
 
-#this method just reads the graph structure from the file
-def buildG(G, file_, delimiter_):
-    global Nodospajek
-    Nodospajek = []
-    #construct the weighted version of the contact graph from cgraph.dat file
-    #reader = csv.reader(open("/home/kazem/Data/UCI/karate.txt"), delimiter=" ")
-    reader = csv.reader(open(file_), delimiter=delimiter_)
-    Arcos = 0
-    cont = 0
-    for line in reader:
-        if Arcos == 0 and  line[0] != "*Arcs" and cont != 0:
-            Nodospajek.append(line)
-        if Arcos == 1:
-           if len(line) >  2:
-              if float(line[2]) != 0.0:
-                #line format: u,v,w
-                G.add_edge(int(line[0]),int(line[1]),weight=float(line[2]))
-           else:
-            #line format: u,v
-               G.add_edge(int(line[0]),int(line[1]),weight=1.0)
-        if line[0] == "*Arcs" : Arcos = 1
-        cont = 1    
+def graphInfecciones(infecciones):
+  fig, ax = plt.subplots(1, 1)
+ 
+  rects = ax.patches
+  labels = [f's{x}' for x in range(len(infecciones))]
+  ax.bar(numpy.arange(len(labels)),infecciones,align='center', alpha=0.5)
+  plt.xticks(numpy.arange(len(labels)), labels)
+  plt.show()
 
+def mejorSeleccion(argv):
+  if len(argv) < 2:
+        sys.stderr.write("Usage: %s <input graph>\n" % (argv[0],))
+        return 1
 
-def main(argv):
+  graph_fn = argv[1]
+  maxInfeccion=-1
+  infecciones=[]
+  semilla=[]
+  maxSemillas=[]
+  for i in range(30):
+    infec,semillas = infeccion(graph_fn,20,3)
+    
+    infecciones.append(infec)
+    semilla.append(semillas)
+    if(infec> maxInfeccion):
+      maxInfeccion=infec
+      maxSemillas=semillas
+  print(maxInfeccion,maxSemillas)
+  print(infecciones)
+  graphInfecciones(infecciones)
+  
+  return maxInfeccion,maxSemillas
+
+def infeccion(archivo, numSemillas,numPasos):
+    
+
+    graph_fn = archivo
+    G = nx.Graph()  #let's create the graph first
+    G=nx.Graph(nx.read_pajek(graph_fn))
+    Nodos = G.nodes()
+    n = G.number_of_nodes()    #|V|
+
+    semillas=random.choices(list(Nodos),k=numSemillas)
+    diffusion = independent_cascade(G, semillas, steps = numPasos)
+
+    infectados = [] # cantidad de infectados
+    # creamos un solo paso de infeccion, para empezar a iterar desde un comienzo con una casacada de infectados.
+    for i in diffusion:
+        for j in i: infectados.append(j)
+
+   
+    diffu = []
+  
+    while (True):
+          
+          diffu.append(infectados)
+          
+          #se vuelve y se coloca los nuevos focos de infeccion a la funcion infeccion.
+          diffusion = independent_cascade(G, infectados, steps = 1)
+
+          #diffu.append(suceptibles)
+          infectados = []
+          #algoritmo que exluye de los infectados los nodos recuperados.
+          for i in diffusion:
+              infectados.extend(i)
+          if(len(diffu[-1]) == len(infectados)):break
+   
+    infectados = 0
+    suceptil = 0
+    recuperados = 0
+    sanos = n     
+    conts = 0
+    infect = []
+    sucep = []
+    Recup = [0]
+    tics = []
+    infect.append(infectados)
+    sucep.append(sanos)
+    tics.append(conts)
+    cont=0
+    return len(diffu[-1]),semillas
+
+    
+def mainDibujo(argv):
     
     if len(argv) < 2:
         sys.stderr.write("Usage: %s <input graph>\n" % (argv[0],))
@@ -170,15 +229,13 @@ def main(argv):
 
     graph_fn = argv[1]
     G = nx.Graph()  #let's create the graph first
-    buildG(G, graph_fn, ' ')
-    
+    G=nx.Graph(nx.read_pajek(graph_fn))
     Nodos = G.nodes()
-     
     n = G.number_of_nodes()    #|V|
-    print(n)
-  
-    diffusion = independent_cascade(G, [191,2,4,5,6,7,144], steps = 1)
-    print(diffusion)
+    
+    diffusion = independent_cascade(G, ['Szathmary, E', 'Chatterjee, A', 'Fraenkel, E', 'Krishna, S', 'Garciafernandez, J', 'Wasserman, S', 'Garton, L', 'Amengual, A', 'Smith, E', 'Clewley, R']
+, steps = 3)
+ 
 
 
     infectados = [] # cantidad de infectados
@@ -216,16 +273,16 @@ def main(argv):
     
     labels={}
     cont = 1
-    for i in G.nodes():
-        colr = float(cont)/n
-        nx.draw_networkx_nodes(G, pos, [i] , node_size = 100, node_color = 'w')
-        labels[i] = i
-        cont += 1
-    nx.draw_networkx_labels(G,pos,labels,font_size=5)        
-    nx.draw_networkx_edges(G,pos, alpha=0.5)
+    # for i in G.nodes():
+    #     colr = float(cont)/n
+    #     nx.draw_networkx_nodes(G, pos, [i] , node_size = 100, node_color = 'w')
+    #     labels[i] = i
+    #     cont += 1
+    # nx.draw_networkx_labels(G,pos,labels,font_size=5)        
+    # nx.draw_networkx_edges(G,pos, alpha=0.5)
 
-    plt.ion()
-    plt.draw()
+    # plt.ion()
+    # plt.draw()
     infectados = 0
     suceptil = 0
     recuperados = 0
@@ -241,9 +298,9 @@ def main(argv):
     cont=0
     for i in diffu:
         infectados = len(i) 
-        nx.draw_networkx_nodes(G, pos, i , node_size = 250, node_color = 'r')
-        plt.pause(0.001)
-        plt.draw()
+        # nx.draw_networkx_nodes(G, pos, i , node_size = 250, node_color = 'r')
+        # plt.pause(0.001)
+        # plt.draw()
         infect.append(infectados)
         sanos = n - infectados
         sucep.append(sanos)
@@ -280,4 +337,5 @@ def main(argv):
     print (time.strftime("%I:%M:%S"))
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv))
+    sys.exit(mainDibujo(sys.argv))
+    # sys.exit(mejorSeleccion(sys.argv))
