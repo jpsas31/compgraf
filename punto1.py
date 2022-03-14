@@ -113,24 +113,24 @@ cali = [[],[]]
 bogota =[[],[]]
 newYork = [[],[]]
 
-with open('ca_s.txt', 'r') as sal :
+with open('./ca_s.txt', 'r') as sal :
        lin = sal.read().split(' ')
        cali[0] = lin
-with open('ca_l.txt', 'r') as sal :
+with open('./ca_l.txt', 'r') as sal :
        lin = sal.read().split(' ')
        cali[1] = lin
 
-with open('ny_s.txt', 'r') as sal :
+with open('./ny_s.txt', 'r') as sal :
        lin = sal.read().split(' ')
        newYork[0] = lin 
-with open('ny_l.txt', 'r') as sal :
+with open('./ny_l.txt', 'r') as sal :
        lin = sal.read().split(' ')
        newYork[1] = lin 
 
-with open('bg_s.txt', 'r') as sal :
+with open('./bg_s.txt', 'r') as sal :
        lin = sal.read().split(' ')
        bogota[0] = lin 
-with open('bg_l.txt', 'r') as sal :
+with open('./bg_l.txt', 'r') as sal :
        lin = sal.read().split(' ')
        bogota[1] = lin 
 
