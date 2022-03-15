@@ -1,0 +1,626 @@
+Salidas Cali
+GRADOS DE LIBERTAD =  9
+X^2 = 6.419354838709677
+X^2crit = 16.919
+El generador es bueno en cuanto a uniformidad pues el valor calculado es menor o igual al critico
++------------------------------------------+------+------+----------------+
+| clase                                    |   FO |   FE |   (FE-FO)^2/FE |
++==========================================+======+======+================+
+| [0.0, 0.1]                               |    8 |  9.3 |     0.18172    |
++------------------------------------------+------+------+----------------+
+| [0.1, 0.2]                               |    9 |  9.3 |     0.00967742 |
++------------------------------------------+------+------+----------------+
+| [0.2, 0.30000000000000004]               |   11 |  9.3 |     0.310753   |
++------------------------------------------+------+------+----------------+
+| [0.30000000000000004, 0.4]               |    6 |  9.3 |     1.17097    |
++------------------------------------------+------+------+----------------+
+| [0.4, 0.5]                               |    5 |  9.3 |     1.98817    |
++------------------------------------------+------+------+----------------+
+| [0.5, 0.6000000000000001]                |   11 |  9.3 |     0.310753   |
++------------------------------------------+------+------+----------------+
+| [0.6000000000000001, 0.7000000000000001] |    7 |  9.3 |     0.568817   |
++------------------------------------------+------+------+----------------+
+| [0.7000000000000001, 0.8]                |   11 |  9.3 |     0.310753   |
++------------------------------------------+------+------+----------------+
+| [0.8, 0.9]                               |   12 |  9.3 |     0.783871   |
++------------------------------------------+------+------+----------------+
+| [0.9, 1.0]                               |   12 |  9.3 |     0.783871   |
++------------------------------------------+------+------+----------------+
+Llegadas Cali
+GRADOS DE LIBERTAD =  8
+X^2 = 14.69736842105263
+X^2crit = 15.507
+El generador es bueno en cuanto a uniformidad pues el valor calculado es menor o igual al critico
++------------------------------------------+------+---------+----------------+
+| clase                                    |   FO |      FE |   (FE-FO)^2/FE |
++==========================================+======+=========+================+
+| [0.0, 0.1111111111111111]                |    8 | 8.44444 |      0.0233918 |
++------------------------------------------+------+---------+----------------+
+| [0.1111111111111111, 0.2222222222222222] |    6 | 8.44444 |      0.707602  |
++------------------------------------------+------+---------+----------------+
+| [0.2222222222222222, 0.3333333333333333] |    9 | 8.44444 |      0.0365497 |
++------------------------------------------+------+---------+----------------+
+| [0.3333333333333333, 0.4444444444444444] |   15 | 8.44444 |      5.08918   |
++------------------------------------------+------+---------+----------------+
+| [0.4444444444444444, 0.5555555555555556] |    5 | 8.44444 |      1.40497   |
++------------------------------------------+------+---------+----------------+
+| [0.5555555555555556, 0.6666666666666666] |    7 | 8.44444 |      0.247076  |
++------------------------------------------+------+---------+----------------+
+| [0.6666666666666666, 0.7777777777777777] |   11 | 8.44444 |      0.773392  |
++------------------------------------------+------+---------+----------------+
+| [0.7777777777777777, 0.8888888888888888] |   12 | 8.44444 |      1.49708   |
++------------------------------------------+------+---------+----------------+
+| [0.8888888888888888, 1.0]                |    2 | 8.44444 |      4.91813   |
++------------------------------------------+------+---------+----------------+
+BOGOTA LLEGADA:  K2 134.69392001217656 P 5.6439985875469725e-30
+BOGOTA LLEGADA CUMPLE DISTRIBUCION NORMAL
+BOGOTA SALIDA:  K2 134.69392001217656 P 5.6439985875469725e-30
+BOGOTA SALIDA CUMPLE DISTRIBUCION NORMAL
+NY LLEGADA:  K2 101.78044313205794 P 7.918767482614027e-23
+NY LLEGADA CUMPLE DISTRIBUCION NORMAL
+NY SALIDA:  K2 101.78044313205794 P 7.918767482614027e-23
+NY SALIDA CUMPLE DISTRIBUCION NORMAL
+Areopuerto cali
+   0.00 Llega para aterrizar el avion  avll00
+   0.00 Llega para despegar el avion  avss00
+   0.00  El avion  avll00 espera la pista para poder aterrizar 0
+  18.94 Llega para despegar el avion  avss01
+  21.17 aterrizo el avion  avll00
+  21.17  El avion  avss00 espera la pista para poder despegar 21.17008055570185
+  49.21 despego el avion  avss00
+  49.21  El avion  avss01 espera la pista para poder despegar 30.26528853786388
+  49.57 Llega para aterrizar el avion  avll01
+  53.13 Llega para despegar el avion  avss02
+  64.14 despego el avion  avss01
+  64.14  El avion  avll01 espera la pista para poder aterrizar 14.56240755726241
+  66.47 Llega para despegar el avion  avss03
+  85.03 Llega para despegar el avion  avss04
+  93.14 aterrizo el avion  avll01
+  93.14  El avion  avss02 espera la pista para poder despegar 40.01071502672134
+  97.50 Llega para aterrizar el avion  avll02
+ 103.90 Llega para despegar el avion  avss05
+ 106.42 despego el avion  avss02
+ 106.42  El avion  avss03 espera la pista para poder despegar 39.94898283273726
+ 128.57 Llega para despegar el avion  avss06
+ 129.45 despego el avion  avss03
+ 129.45  El avion  avss04 espera la pista para poder despegar 44.42514429422346
+ 141.32 Llega para aterrizar el avion  avll03
+ 146.90 despego el avion  avss04
+ 146.90  El avion  avll02 espera la pista para poder aterrizar 49.4013846802749
+ 162.93 aterrizo el avion  avll02
+ 162.93 se cancelo el avion  avss05
+ 162.93  El avion  avss06 espera la pista para poder despegar 34.35441313481445
+ 165.67 Llega para despegar el avion  avss07
+ 170.71 Llega para aterrizar el avion  avll04
+ 174.81 Llega para despegar el avion  avss08
+ 183.23 Llega para despegar el avion  avss09
+ 191.43 despego el avion  avss06
+ 191.43  El avion  avll03 espera la pista para poder aterrizar 50.1110319510868
+ 200.19 Llega para aterrizar el avion  avll05
+ 218.49 aterrizo el avion  avll03
+ 218.49  El avion  avss07 espera la pista para poder despegar 52.812616872004924
+ 218.87 Llega para aterrizar el avion  avll06
+ 219.76 Llega para despegar el avion  avss10
+ 245.31 despego el avion  avss07
+ 245.31  El avion  avll04 espera la pista para poder aterrizar 74.59727015554415
+ 248.46 Llega para despegar el avion  avss11
+ 256.79 aterrizo el avion  avll04
+ 256.79  El avion  avss08 espera la pista para poder despegar 81.97783922836993
+ 265.43 Llega para despegar el avion  avss12
+ 265.50 Llega para aterrizar el avion  avll07
+ 269.10 Llega para aterrizar el avion  avll08
+ 284.25 despego el avion  avss08
+ 284.25 se cancelo el avion  avss09
+ 284.25  El avion  avll05 espera la pista para poder aterrizar 84.06097652175788
+ 299.80 Llega para aterrizar el avion  avll09
+ 303.85 Llega para despegar el avion  avss13
+ 309.13 aterrizo el avion  avll05
+ 309.13  El avion  avll06 espera la pista para poder aterrizar 90.2618045073348
+ 317.26 Llega para despegar el avion  avss14
+ 319.23 aterrizo el avion  avll06
+ 319.23  El avion  avss10 espera la pista para poder despegar 99.46274837223234
+ 331.02 despego el avion  avss10
+ 331.02  El avion  avss11 espera la pista para poder despegar 82.55901028955597
+ 341.19 Llega para aterrizar el avion  avll10
+ 346.03 Llega para aterrizar el avion  avll11
+ 353.83 despego el avion  avss11
+ 353.83  El avion  avss12 espera la pista para poder despegar 88.39732456287857
+ 354.89 Llega para despegar el avion  avss15
+ 356.65 Llega para despegar el avion  avss16
+ 364.49 Llega para aterrizar el avion  avll12
+ 367.02 Llega para despegar el avion  avss17
+ 381.56 Llega para despegar el avion  avss18
+ 382.91 despego el avion  avss12
+ 382.91  El avion  avll07 espera la pista para poder aterrizar 117.40877174716564
+ 402.09 Llega para aterrizar el avion  avll13
+ 411.72 aterrizo el avion  avll07
+ 411.72  El avion  avll08 espera la pista para poder aterrizar 142.61852653855033
+ 418.71 Llega para despegar el avion  avss19
+ 439.26 aterrizo el avion  avll08
+ 439.26  El avion  avll09 espera la pista para poder aterrizar 139.45836225788565
+ 446.10 Llega para aterrizar el avion  avll14
+ 455.68 aterrizo el avion  avll09
+ 455.68  El avion  avss13 espera la pista para poder despegar 151.8311527887405
+ 456.47 Llega para despegar el avion  avss20
+ 464.12 Llega para aterrizar el avion  avll15
+ 472.75 despego el avion  avss13
+ 472.75  El avion  avss14 espera la pista para poder despegar 155.48921073028208
+ 492.23 Llega para despegar el avion  avss21
+ 492.28 despego el avion  avss14
+ 492.28  El avion  avll10 espera la pista para poder aterrizar 151.08663278664028
+ 503.25 Llega para aterrizar el avion  avll16
+ 504.31 Llega para despegar el avion  avss22
+ 513.26 aterrizo el avion  avll10
+ 513.26  El avion  avll11 espera la pista para poder aterrizar 167.22675351032098
+ 523.50 Llega para aterrizar el avion  avll17
+ 526.78 Llega para despegar el avion  avss23
+ 539.39 aterrizo el avion  avll11
+ 539.39  El avion  avss15 espera la pista para poder despegar 184.5009682327057
+ 556.23 despego el avion  avss15
+ 556.23  El avion  avss16 espera la pista para poder despegar 199.58486187379793
+ 562.74 Llega para aterrizar el avion  avll18
+ 564.57 Llega para despegar el avion  avss24
+ 569.79 despego el avion  avss16
+ 569.79  El avion  avll12 espera la pista para poder aterrizar 205.30122096829166
+ 570.53 Llega para aterrizar el avion  avll19
+ 579.33 Llega para despegar el avion  avss25
+ 595.12 aterrizo el avion  avll12
+ 595.12  El avion  avss17 espera la pista para poder despegar 228.09540865590412
+ 607.74 despego el avion  avss17
+ 607.74  El avion  avss18 espera la pista para poder despegar 226.17359013397606
+ 615.38 Llega para aterrizar el avion  avll20
+ 618.58 Llega para despegar el avion  avss26
+ 619.81 Llega para despegar el avion  avss27
+ 636.39 despego el avion  avss18
+ 636.39 se cancelo el avion  avll13
+ 636.39  El avion  avss19 espera la pista para poder despegar 217.6776781734058
+ 636.61 Llega para despegar el avion  avss28
+ 642.48 Llega para despegar el avion  avss29
+ 642.69 Llega para aterrizar el avion  avll21
+ 659.80 despego el avion  avss19
+ 659.80  El avion  avll14 espera la pista para poder aterrizar 213.70814224913113
+ 661.90 Llega para aterrizar el avion  avll22
+ 677.40 aterrizo el avion  avll14
+ 677.40  El avion  avss20 espera la pista para poder despegar 220.9286649215249
+ 688.72 Llega para aterrizar el avion  avll23
+ 690.44 despego el avion  avss20
+ 690.44  El avion  avll15 espera la pista para poder aterrizar 226.3237863680058
+ 713.51 aterrizo el avion  avll15
+ 713.51  El avion  avss21 espera la pista para poder despegar 221.2871600449517
+ 728.00 despego el avion  avss21
+ 728.00  El avion  avll16 espera la pista para poder aterrizar 224.74874463866115
+ 740.04 Llega para aterrizar el avion  avll24
+ 753.27 aterrizo el avion  avll16
+ 753.27  El avion  avss22 espera la pista para poder despegar 248.96333741387855
+ 762.85 Llega para aterrizar el avion  avll25
+ 766.79 despego el avion  avss22
+ 766.79  El avion  avll17 espera la pista para poder aterrizar 243.29607796399
+ 787.62 aterrizo el avion  avll17
+ 787.62  El avion  avss23 espera la pista para poder despegar 260.83302262956954
+ 793.56 Llega para aterrizar el avion  avll26
+ 810.49 Llega para aterrizar el avion  avll27
+ 815.83 despego el avion  avss23
+ 815.83  El avion  avll18 espera la pista para poder aterrizar 253.0877398683216
+ 828.67 aterrizo el avion  avll18
+ 828.67  El avion  avss24 espera la pista para poder despegar 264.1032107657941
+ 831.30 Llega para aterrizar el avion  avll28
+ 840.32 Llega para aterrizar el avion  avll29
+ 841.34 despego el avion  avss24
+ 841.34  El avion  avll19 espera la pista para poder aterrizar 270.80487291465295
+ 868.96 aterrizo el avion  avll19
+ 868.96  El avion  avss25 espera la pista para poder despegar 289.63184049894494
+ 880.71 despego el avion  avss25
+ 880.71  El avion  avll20 espera la pista para poder aterrizar 265.33009218413144
+ 900.47 aterrizo el avion  avll20
+ 900.47  El avion  avss26 espera la pista para poder despegar 281.88564509314665
+ 916.40 despego el avion  avss26
+ 916.40  El avion  avss27 espera la pista para poder despegar 296.59186234060735
+ 926.92 despego el avion  avss27
+ 926.92  El avion  avss28 espera la pista para poder despegar 290.30848243388584
+ 946.41 despego el avion  avss28
+ 946.41  El avion  avss29 espera la pista para poder despegar 303.9324440700524
+ 960.27 despego el avion  avss29
+ 960.27  El avion  avll21 espera la pista para poder aterrizar 317.57206138372646
+ 981.75 aterrizo el avion  avll21
+ 981.75  El avion  avll22 espera la pista para poder aterrizar 319.8483121768862
+ 997.94 aterrizo el avion  avll22
+ 997.94  El avion  avll23 espera la pista para poder aterrizar 309.2179656034182
+1020.08 aterrizo el avion  avll23
+1020.08  El avion  avll24 espera la pista para poder aterrizar 280.04121901853
+1035.35 aterrizo el avion  avll24
+1035.35  El avion  avll25 espera la pista para poder aterrizar 272.4989889198466
+1047.65 aterrizo el avion  avll25
+1047.65  El avion  avll26 espera la pista para poder aterrizar 254.09361356063732
+1065.31 aterrizo el avion  avll26
+1065.31  El avion  avll27 espera la pista para poder aterrizar 254.82606797144922
+1093.15 aterrizo el avion  avll27
+1093.15  El avion  avll28 espera la pista para poder aterrizar 261.85336357214055
+1107.08 aterrizo el avion  avll28
+1107.08  El avion  avll29 espera la pista para poder aterrizar 266.7617291852064
+1133.12 aterrizo el avion  avll29
+Cola máxima  18
+Cola máxima aterrizar  11
+Cola máxima despegar  10
+Tiempo de espera total 10177.31
+Tiempo de espera aviones por aterrizar 5520.11
+Tiempo de espera aviones por despegar 4657.20
+Tiempo promedio de espera total  169.62
+Tiempo promedio de espera aviones por aterrizar  190.35
+Tiempo promedio de espera aviones por despegar  166.33
+Areopuerto Bogota
+   0.00 Llega para aterrizar el avion  avll00
+   0.00 Llega para despegar el avion  avss00
+   0.00  El avion  avll00 espera la pista para poder aterrizar 0
+   0.00  El avion  avss00 espera la pista para poder despegar 0
+  14.49 Llega para despegar el avion  avss01
+  15.76 despego el avion  avss00
+  15.76  El avion  avss01 espera la pista para poder despegar 1.267295844328732
+  24.75 aterrizo el avion  avll00
+  25.55 Llega para despegar el avion  avss02
+  25.55  El avion  avss02 espera la pista para poder despegar 0.0
+  35.03 despego el avion  avss01
+  40.47 Llega para despegar el avion  avss03
+  40.47  El avion  avss03 espera la pista para poder despegar 0.0
+  49.54 Llega para aterrizar el avion  avll01
+  51.49 despego el avion  avss02
+  51.49  El avion  avll01 espera la pista para poder aterrizar 1.9483815825163546
+  57.79 Llega para despegar el avion  avss04
+  67.63 aterrizo el avion  avll01
+  67.63  El avion  avss04 espera la pista para poder despegar 9.844974308785893
+  69.02 despego el avion  avss03
+  70.04 Llega para despegar el avion  avss05
+  70.04  El avion  avss05 espera la pista para poder despegar 0.0
+  73.71 Llega para aterrizar el avion  avll02
+  76.55 Llega para despegar el avion  avss06
+  80.72 Llega para despegar el avion  avss07
+  96.13 despego el avion  avss04
+  96.13  El avion  avll02 espera la pista para poder aterrizar 22.42804596547498
+  97.00 Llega para despegar el avion  avss08
+  98.30 despego el avion  avss05
+  98.30  El avion  avss06 espera la pista para poder despegar 21.751323647037353
+ 108.40 despego el avion  avss06
+ 108.40  El avion  avss07 espera la pista para poder despegar 27.67868204505109
+ 108.95 Llega para aterrizar el avion  avll03
+ 110.45 Llega para aterrizar el avion  avll04
+ 118.12 Llega para despegar el avion  avss09
+ 121.01 aterrizo el avion  avll02
+ 121.01  El avion  avss08 espera la pista para poder despegar 24.00941397933984
+ 121.98 Llega para despegar el avion  avss10
+ 135.78 despego el avion  avss07
+ 135.78  El avion  avll03 espera la pista para poder aterrizar 26.824713403609877
+ 142.12 Llega para aterrizar el avion  avll05
+ 143.89 Llega para despegar el avion  avss11
+ 149.59 despego el avion  avss08
+ 149.59  El avion  avll04 espera la pista para poder aterrizar 39.13896852136082
+ 155.78 Llega para despegar el avion  avss12
+ 164.65 aterrizo el avion  avll03
+ 164.65  El avion  avss09 espera la pista para poder despegar 46.533340967567256
+ 177.47 aterrizo el avion  avll04
+ 177.47  El avion  avss10 espera la pista para poder despegar 55.488614720816116
+ 177.90 Llega para despegar el avion  avss13
+ 180.70 despego el avion  avss09
+ 180.70  El avion  avll05 espera la pista para poder aterrizar 38.5742495545845
+ 181.64 Llega para aterrizar el avion  avll06
+ 188.71 Llega para despegar el avion  avss14
+ 194.58 Llega para aterrizar el avion  avll07
+ 198.45 despego el avion  avss10
+ 198.45  El avion  avss11 espera la pista para poder despegar 54.55409686503273
+ 199.85 Llega para despegar el avion  avss15
+ 205.05 Llega para aterrizar el avion  avll08
+ 206.83 aterrizo el avion  avll05
+ 206.83  El avion  avss12 espera la pista para poder despegar 51.049800972399765
+ 216.73 Llega para despegar el avion  avss16
+ 217.23 despego el avion  avss12
+ 217.23  El avion  avss13 espera la pista para poder despegar 39.336148933530836
+ 223.78 despego el avion  avss11
+ 223.78  El avion  avll06 espera la pista para poder aterrizar 42.1421787670663
+ 224.09 Llega para despegar el avion  avss17
+ 232.10 Llega para aterrizar el avion  avll09
+ 235.52 Llega para despegar el avion  avss18
+ 236.73 despego el avion  avss13
+ 236.73  El avion  avss14 espera la pista para poder despegar 48.021577276760866
+ 243.53 aterrizo el avion  avll06
+ 243.53  El avion  avll07 espera la pista para poder aterrizar 48.94991540992754
+ 260.30 despego el avion  avss14
+ 260.30  El avion  avss15 espera la pista para poder despegar 60.45090618029809
+ 261.83 aterrizo el avion  avll07
+ 261.83  El avion  avll08 espera la pista para poder aterrizar 56.776326812170424
+ 264.24 Llega para despegar el avion  avss19
+ 273.82 despego el avion  avss15
+ 273.82  El avion  avss16 espera la pista para poder despegar 57.085649256222524
+ 282.81 Llega para despegar el avion  avss20
+ 285.27 aterrizo el avion  avll08
+ 285.27  El avion  avss17 espera la pista para poder despegar 61.18453393350333
+ 289.66 Llega para aterrizar el avion  avll10
+ 289.98 despego el avion  avss16
+ 289.98  El avion  avll09 espera la pista para poder aterrizar 57.87957808320695
+ 293.51 Llega para despegar el avion  avss21
+ 303.93 Llega para aterrizar el avion  avll11
+ 310.22 Llega para aterrizar el avion  avll12
+ 311.16 despego el avion  avss17
+ 311.16  El avion  avss18 espera la pista para poder despegar 75.63491087157664
+ 312.21 aterrizo el avion  avll09
+ 312.21 se cancelo el avion  avss19
+ 312.21  El avion  avss20 espera la pista para poder despegar 29.400562185681565
+ 315.81 Llega para despegar el avion  avss22
+ 331.70 despego el avion  avss20
+ 331.70  El avion  avll10 espera la pista para poder aterrizar 42.037573130000965
+ 331.71 Llega para despegar el avion  avss23
+ 331.99 despego el avion  avss18
+ 331.99  El avion  avss21 espera la pista para poder despegar 38.472637654890036
+ 336.17 Llega para aterrizar el avion  avll13
+ 350.35 Llega para despegar el avion  avss24
+ 353.19 aterrizo el avion  avll10
+ 353.19  El avion  avll11 espera la pista para poder aterrizar 49.2617593281247
+ 354.13 despego el avion  avss21
+ 354.13  El avion  avll12 espera la pista para poder aterrizar 43.90701161138736
+ 361.76 Llega para despegar el avion  avss25
+ 364.83 Llega para aterrizar el avion  avll14
+ 369.93 Llega para despegar el avion  avss26
+ 370.85 aterrizo el avion  avll11
+ 370.85  El avion  avss22 espera la pista para poder despegar 55.04710479843794
+ 381.97 aterrizo el avion  avll12
+ 381.97  El avion  avss23 espera la pista para poder despegar 50.25329360661431
+ 386.62 Llega para despegar el avion  avss27
+ 393.59 Llega para aterrizar el avion  avll15
+ 394.80 despego el avion  avss22
+ 394.80  El avion  avll13 espera la pista para poder aterrizar 58.624163272057274
+ 406.97 despego el avion  avss23
+ 406.97  El avion  avss24 espera la pista para poder despegar 56.62113375298401
+ 411.54 aterrizo el avion  avll13
+ 411.54  El avion  avss25 espera la pista para poder despegar 49.78067947156251
+ 411.57 Llega para despegar el avion  avss28
+ 419.42 Llega para despegar el avion  avss29
+ 423.02 despego el avion  avss24
+ 423.02 se cancelo el avion  avll14
+ 423.02  El avion  avss26 espera la pista para poder despegar 53.09676017951762
+ 431.32 Llega para aterrizar el avion  avll16
+ 431.92 despego el avion  avss25
+ 431.92  El avion  avss27 espera la pista para poder despegar 45.29537712843245
+ 446.50 despego el avion  avss26
+ 446.50  El avion  avll15 espera la pista para poder aterrizar 52.91437874029964
+ 447.42 despego el avion  avss27
+ 447.42  El avion  avss28 espera la pista para poder despegar 35.846201635376644
+ 453.69 Llega para aterrizar el avion  avll17
+ 461.43 despego el avion  avss28
+ 461.43  El avion  avss29 espera la pista para poder despegar 42.0069614350727
+ 474.68 aterrizo el avion  avll15
+ 474.68  El avion  avll16 espera la pista para poder aterrizar 43.36306593300196
+ 486.24 Llega para aterrizar el avion  avll18
+ 486.72 despego el avion  avss29
+ 486.72  El avion  avll17 espera la pista para poder aterrizar 33.03004212061643
+ 487.11 aterrizo el avion  avll16
+ 487.11  El avion  avll18 espera la pista para poder aterrizar 0.8657544067024219
+ 498.49 aterrizo el avion  avll17
+ 499.29 aterrizo el avion  avll18
+ 504.24 Llega para aterrizar el avion  avll19
+ 504.24  El avion  avll19 espera la pista para poder aterrizar 0.0
+ 526.70 aterrizo el avion  avll19
+ 534.44 Llega para aterrizar el avion  avll20
+ 534.44  El avion  avll20 espera la pista para poder aterrizar 0.0
+ 560.58 aterrizo el avion  avll20
+ 585.20 Llega para aterrizar el avion  avll21
+ 585.20  El avion  avll21 espera la pista para poder aterrizar 0.0
+ 588.04 Llega para aterrizar el avion  avll22
+ 588.04  El avion  avll22 espera la pista para poder aterrizar 0.0
+ 609.06 aterrizo el avion  avll22
+ 613.96 aterrizo el avion  avll21
+ 627.80 Llega para aterrizar el avion  avll23
+ 627.80  El avion  avll23 espera la pista para poder aterrizar 0.0
+ 641.70 Llega para aterrizar el avion  avll24
+ 641.70  El avion  avll24 espera la pista para poder aterrizar 0.0
+ 648.95 aterrizo el avion  avll23
+ 652.74 Llega para aterrizar el avion  avll25
+ 652.74  El avion  avll25 espera la pista para poder aterrizar 0.0
+ 670.93 aterrizo el avion  avll24
+ 678.91 aterrizo el avion  avll25
+ 679.22 Llega para aterrizar el avion  avll26
+ 679.22  El avion  avll26 espera la pista para poder aterrizar 0.0
+ 690.60 aterrizo el avion  avll26
+ 726.11 Llega para aterrizar el avion  avll27
+ 726.11  El avion  avll27 espera la pista para poder aterrizar 0.0
+ 752.42 aterrizo el avion  avll27
+ 757.79 Llega para aterrizar el avion  avll28
+ 757.79  El avion  avll28 espera la pista para poder aterrizar 0.0
+ 767.49 Llega para aterrizar el avion  avll29
+ 767.49  El avion  avll29 espera la pista para poder aterrizar 0.0
+ 779.84 aterrizo el avion  avll28
+ 790.08 aterrizo el avion  avll29
+Cola máxima  8
+Cola máxima aterrizar  3
+Cola máxima despegar  5
+Tiempo de espera total 1748.38
+Tiempo de espera aviones por aterrizar  658.67
+Tiempo de espera aviones por despegar 1089.71
+Tiempo promedio de espera total   29.14
+Tiempo promedio de espera aviones por aterrizar   22.71
+Tiempo promedio de espera aviones por despegar   37.58
+Areopuerto NY
+   0.00 Llega para aterrizar el avion  avll00
+   0.00 Llega para despegar el avion  avss00
+   0.00  El avion  avll00 espera la pista para poder aterrizar 0
+   0.00  El avion  avss00 espera la pista para poder despegar 0
+  12.35 Llega para despegar el avion  avss01
+  12.35  El avion  avss01 espera la pista para poder despegar 0.0
+  15.76 despego el avion  avss00
+  21.82 Llega para despegar el avion  avss02
+  21.82  El avion  avss02 espera la pista para poder despegar 0.0
+  24.75 aterrizo el avion  avll00
+  31.63 despego el avion  avss01
+  34.53 Llega para despegar el avion  avss03
+  34.53  El avion  avss03 espera la pista para poder despegar 0.0
+  40.55 Llega para aterrizar el avion  avll01
+  40.55  El avion  avll01 espera la pista para poder aterrizar 0.0
+  47.76 despego el avion  avss02
+  49.26 Llega para despegar el avion  avss04
+  49.26  El avion  avss04 espera la pista para poder despegar 0.0
+  56.69 aterrizo el avion  avll01
+  59.73 Llega para despegar el avion  avss05
+  59.73  El avion  avss05 espera la pista para poder despegar 0.0
+  61.94 Llega para aterrizar el avion  avll02
+  61.94  El avion  avll02 espera la pista para poder aterrizar 0.0
+  63.09 despego el avion  avss03
+  65.37 Llega para despegar el avion  avss06
+  65.37  El avion  avss06 espera la pista para poder despegar 0.0
+  77.76 despego el avion  avss04
+  79.23 Llega para despegar el avion  avss07
+  79.23  El avion  avss07 espera la pista para poder despegar 0.0
+  80.43 aterrizo el avion  avll02
+  87.99 despego el avion  avss05
+  89.33 despego el avion  avss07
+  90.25 despego el avion  avss06
+  91.70 Llega para aterrizar el avion  avll03
+  91.70  El avion  avll03 espera la pista para poder aterrizar 0.0
+  93.72 Llega para aterrizar el avion  avll04
+  93.72  El avion  avll04 espera la pista para poder aterrizar 0.0
+  97.16 Llega para despegar el avion  avss08
+  97.16  El avion  avss08 espera la pista para poder despegar 0.0
+ 100.49 Llega para aterrizar el avion  avll05
+ 100.49  El avion  avll05 espera la pista para poder aterrizar 0.0
+ 103.46 aterrizo el avion  avll03
+ 115.52 aterrizo el avion  avll05
+ 115.76 Llega para despegar el avion  avss09
+ 115.76  El avion  avss09 espera la pista para poder despegar 0.0
+ 120.26 Llega para despegar el avion  avss10
+ 120.26  El avion  avss10 espera la pista para poder despegar 0.0
+ 122.30 aterrizo el avion  avll04
+ 126.04 despego el avion  avss08
+ 132.92 Llega para despegar el avion  avss11
+ 132.92  El avion  avss11 espera la pista para poder despegar 0.0
+ 133.48 Llega para aterrizar el avion  avll06
+ 133.48  El avion  avll06 espera la pista para poder aterrizar 0.0
+ 136.26 despego el avion  avss09
+ 141.24 despego el avion  avss10
+ 142.18 Llega para despegar el avion  avss12
+ 142.18  El avion  avss12 espera la pista para poder despegar 0.0
+ 146.40 Llega para aterrizar el avion  avll07
+ 146.40  El avion  avll07 espera la pista para poder aterrizar 0.0
+ 147.03 aterrizo el avion  avll06
+ 148.05 Llega para despegar el avion  avss13
+ 148.05  El avion  avss13 espera la pista para poder despegar 0.0
+ 158.45 despego el avion  avss13
+ 159.06 despego el avion  avss11
+ 161.10 Llega para despegar el avion  avss14
+ 161.10  El avion  avss14 espera la pista para poder despegar 0.0
+ 167.45 Llega para despegar el avion  avss15
+ 167.45  El avion  avss15 espera la pista para poder despegar 0.0
+ 167.51 despego el avion  avss12
+ 172.26 Llega para aterrizar el avion  avll08
+ 172.26  El avion  avll08 espera la pista para poder aterrizar 0.0
+ 175.05 aterrizo el avion  avll07
+ 177.56 Llega para despegar el avion  avss16
+ 177.56  El avion  avss16 espera la pista para poder despegar 0.0
+ 179.75 Llega para despegar el avion  avss17
+ 180.49 despego el avion  avss15
+ 180.49  El avion  avss17 espera la pista para poder despegar 0.7453409426081521
+ 180.60 despego el avion  avss14
+ 195.86 despego el avion  avss16
+ 196.88 Llega para despegar el avion  avss18
+ 196.88  El avion  avss18 espera la pista para poder despegar 0.0
+ 198.77 aterrizo el avion  avll08
+ 203.94 despego el avion  avss17
+ 212.66 Llega para despegar el avion  avss19
+ 212.66  El avion  avss19 espera la pista para poder despegar 0.0
+ 213.03 despego el avion  avss18
+ 218.87 Llega para aterrizar el avion  avll09
+ 218.87  El avion  avll09 espera la pista para poder aterrizar 0.0
+ 221.83 Llega para despegar el avion  avss20
+ 221.83  El avion  avss20 espera la pista para poder despegar 0.0
+ 232.79 Llega para aterrizar el avion  avll10
+ 232.79  El avion  avll10 espera la pista para poder aterrizar 0.0
+ 238.54 despego el avion  avss19
+ 240.20 despego el avion  avss20
+ 240.74 Llega para despegar el avion  avss21
+ 240.74  El avion  avss21 espera la pista para poder despegar 0.0
+ 241.10 aterrizo el avion  avll09
+ 245.25 Llega para despegar el avion  avss22
+ 245.25  El avion  avss22 espera la pista para poder despegar 0.0
+ 253.61 aterrizo el avion  avll10
+ 255.53 Llega para aterrizar el avion  avll11
+ 255.53  El avion  avll11 espera la pista para poder aterrizar 0.0
+ 261.04 Llega para despegar el avion  avss23
+ 261.04  El avion  avss23 espera la pista para poder despegar 0.0
+ 261.31 despego el avion  avss21
+ 268.40 Llega para despegar el avion  avss24
+ 268.40  El avion  avss24 espera la pista para poder despegar 0.0
+ 270.90 aterrizo el avion  avll11
+ 273.52 despego el avion  avss22
+ 273.60 Llega para despegar el avion  avss25
+ 273.60  El avion  avss25 espera la pista para poder despegar 0.0
+ 284.31 Llega para aterrizar el avion  avll12
+ 284.31  El avion  avll12 espera la pista para poder aterrizar 0.0
+ 290.32 despego el avion  avss23
+ 296.74 despego el avion  avss24
+ 299.23 Llega para despegar el avion  avss26
+ 299.23  El avion  avss26 espera la pista para poder despegar 0.0
+ 300.42 despego el avion  avss25
+ 302.32 Llega para aterrizar el avion  avll13
+ 302.32  El avion  avll13 espera la pista para poder aterrizar 0.0
+ 309.14 Llega para despegar el avion  avss27
+ 309.14  El avion  avss27 espera la pista para poder despegar 0.0
+ 310.64 despego el avion  avss26
+ 314.23 aterrizo el avion  avll12
+ 322.50 aterrizo el avion  avll13
+ 326.60 Llega para aterrizar el avion  avll14
+ 326.60  El avion  avll14 espera la pista para poder aterrizar 0.0
+ 328.79 Llega para despegar el avion  avss28
+ 328.79  El avion  avss28 espera la pista para poder despegar 0.0
+ 332.46 despego el avion  avss27
+ 338.16 Llega para aterrizar el avion  avll15
+ 338.16  El avion  avll15 espera la pista para poder aterrizar 0.0
+ 341.07 despego el avion  avss28
+ 344.81 Llega para despegar el avion  avss29
+ 344.81  El avion  avss29 espera la pista para poder despegar 0.0
+ 350.59 aterrizo el avion  avll15
+ 354.79 aterrizo el avion  avll14
+ 356.58 despego el avion  avss29
+ 384.11 Llega para aterrizar el avion  avll16
+ 384.11  El avion  avll16 espera la pista para poder aterrizar 0.0
+ 399.63 Llega para aterrizar el avion  avll17
+ 399.63  El avion  avll17 espera la pista para poder aterrizar 0.0
+ 405.83 aterrizo el avion  avll16
+ 408.90 Llega para aterrizar el avion  avll18
+ 408.90  El avion  avll18 espera la pista para poder aterrizar 0.0
+ 410.24 aterrizo el avion  avll17
+ 435.04 aterrizo el avion  avll18
+ 450.37 Llega para aterrizar el avion  avll19
+ 450.37  El avion  avll19 espera la pista para poder aterrizar 0.0
+ 455.66 Llega para aterrizar el avion  avll20
+ 455.66  El avion  avll20 espera la pista para poder aterrizar 0.0
+ 476.68 aterrizo el avion  avll20
+ 479.13 aterrizo el avion  avll19
+ 488.83 Llega para aterrizar el avion  avll21
+ 488.83  El avion  avll21 espera la pista para poder aterrizar 0.0
+ 502.47 Llega para aterrizar el avion  avll22
+ 502.47  El avion  avll22 espera la pista para poder aterrizar 0.0
+ 509.98 aterrizo el avion  avll21
+ 513.96 Llega para aterrizar el avion  avll23
+ 513.96  El avion  avll23 espera la pista para poder aterrizar 0.0
+ 531.70 aterrizo el avion  avll22
+ 537.10 Llega para aterrizar el avion  avll24
+ 537.10  El avion  avll24 espera la pista para poder aterrizar 0.0
+ 540.13 aterrizo el avion  avll23
+ 548.48 aterrizo el avion  avll24
+ 575.65 Llega para aterrizar el avion  avll25
+ 575.65  El avion  avll25 espera la pista para poder aterrizar 0.0
+ 601.96 aterrizo el avion  avll25
+ 602.72 Llega para aterrizar el avion  avll26
+ 602.72  El avion  avll26 espera la pista para poder aterrizar 0.0
+ 613.19 Llega para aterrizar el avion  avll27
+ 613.19  El avion  avll27 espera la pista para poder aterrizar 0.0
+ 624.77 aterrizo el avion  avll26
+ 635.77 aterrizo el avion  avll27
+ 661.19 Llega para aterrizar el avion  avll28
+ 661.19  El avion  avll28 espera la pista para poder aterrizar 0.0
+ 678.35 aterrizo el avion  avll28
+ 690.71 Llega para aterrizar el avion  avll29
+ 690.71 se cancelo el avion  avll29
+Cola máxima  2
+Cola máxima aterrizar  1
+Cola máxima despegar  1
+Tiempo de espera total    0.75
+Tiempo de espera aviones por aterrizar    0.00
+Tiempo de espera aviones por despegar    0.75
+Tiempo promedio de espera total    0.01
+Tiempo promedio de espera aviones por aterrizar    0.00
+Tiempo promedio de espera aviones por despegar    0.02

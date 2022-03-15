@@ -1,91 +1,13 @@
-import pandas as pd
 import numpy
 import matplotlib.pyplot as plt
 from scipy.stats import uniform
 from scipy.stats import expon
+import scipy.stats as stats
 import util
 import ChiCuadrado
 import math
 import random
 import simpy
-
-def infoNY():
-    fechasSalida= [12,14,16,18,20,22]
-    fechasEntrada= [12,14,16,18,20,22]
-    datosSalida=[]
-    datosEntrada=[]
-    for fecha in fechasSalida:
-        datosSalida.append(pd.read_html(f'https://es.airports-worldwide.info/aeropuerto/JFK/salidas/Salidas_Aeropuerto_Internacional_John_F_Kennedy_Nueva_York_JFK_KJFK?time=2022-03-13+{fecha}%3A00'))
-    for fecha in fechasEntrada:
-        datosEntrada.append(pd.read_html(f'https://es.airports-worldwide.info/aeropuerto/JFK/llegadas/Llegadas_Aeropuerto_Internacional_John_F_Kennedy_Nueva_York_JFK_KJFK?time=2022-03-13+{fecha}%3A00'))
-    llegadas=[]
-    salidas=[]
-   
-    for tablas in datosEntrada:
-        for tabla in tablas:
-            llegadas.extend(tabla['Llegada'])
-    for tablas in datosSalida:
-        for tabla in tablas:
-            salidas.extend(tabla['Partida'])
-
-    print(len(salidas),len(llegadas))
-    with open('ny_l.txt', 'w') as sal :
-        sal.write(' '.join(salidas))
-
-    with open('ny_s.txt', 'w') as sal :
-        sal.write(' '.join(llegadas))
-
-    return [salidas,llegadas]
-
-def infoBogota():
-    fechasSalida= [11,14,17, 20, 23]
-    fechasEntrada= [11, 14, 17, 21]
-    datosSalida=[]
-    datosEntrada=[]
-    for fecha in fechasSalida:
-        datosSalida.append(pd.read_html(f'https://es.airports-worldwide.info/aeropuerto/BOG/salidas/Salidas_Aeropuerto_El_Dorado_Bogota_BOG_SKBO?time=2022-02-28+{fecha}%3A00'))
-    for fecha in fechasEntrada:
-        datosEntrada.append(pd.read_html(f'https://es.airports-worldwide.info/aeropuerto/BOG/llegadas/Llegadas_Aeropuerto_El_Dorado_Bogota_BOG_SKBO?time=2022-02-28+{fecha}%3A00'))
-    llegadas=[]
-    salidas=[]
-   
-    for tablas in datosEntrada:
-        for tabla in tablas:
-            llegadas.extend(tabla['Llegada'])
-    for tablas in datosSalida:
-        for tabla in tablas:
-            salidas.extend(tabla['Partida'])
-
-    print(len(salidas),len(llegadas))
-    with open('bg_l.txt', 'w') as sal :
-        sal.write(' '.join(salidas))
-
-    with open('bg_s.txt', 'w') as sal :
-        sal.write(' '.join(llegadas))
-    return [salidas,llegadas]
-
-def infoCali():
-    
-    datosSalida=[]
-    datosEntrada=[]
-    
-    datosSalida=pd.read_html(f'https://es.airports-worldwide.info/aeropuerto/CLO/salidas/Salidas_Cali_Alfonso_Bonillaaragon_airport_Cali_CLO_SKCL')
-    datosEntrada=pd.read_html(f'https://es.airports-worldwide.info/aeropuerto/CLO/llegadas/_Cali_Alfonso_Bonillaaragon_airport_Cali_CLO_SKCL')
-    llegadas=[]
-    salidas=[]
-   
-    for tabla in datosEntrada:
-            llegadas.extend(tabla['Llegada'])
-    for tabla in datosSalida:
-            salidas.extend(tabla['Partida'])
-
-    print(len(salidas),len(llegadas))
-    with open('ca_l.txt', 'w') as sal :
-        sal.write(' '.join(salidas))
-
-    with open('ca_s.txt', 'w') as sal :
-        sal.write(' '.join(llegadas))
-    return [salidas,llegadas]
 
 def plot(horas, intervalo_uno, intervalo_dos):
     plot1 = plt.figure(1)
@@ -95,11 +17,6 @@ def plot(horas, intervalo_uno, intervalo_dos):
     plt.hist(horas[1],bins=intervalo_dos, edgecolor='black', linewidth=1.2)
     plt.xlabel("horas de Entrada")
     plt.show()
-
-def randExpon(size):
-    return  [x * 24 for x in expon.rvs(size=size)]
-def randUniform(size):
-    return [x * 24 for x in uniform.rvs(size=size)]
 
 def pasarSegundos(hora):
     horas = hora.split(":")
@@ -134,17 +51,6 @@ with open('./bg_l.txt', 'r') as sal :
        lin = sal.read().split(' ')
        bogota[1] = lin 
 
-# print(cali, bogota, newYork)
-
-
-# print(randUniform(5))
-# plot(cali)   #uniforme
-# plot(bogota) #uniforme
-# plot(newYork) #uniforme - normal
-
-# plot(cali,math.ceil(math.sqrt(len(cali[0]))),math.ceil(math.sqrt(len(cali[1]))))
-# plot(bogota)
-# plot(newYork)
 cali[0] = [pasarSegundos(hora) for hora in cali[0]]
 cali[1] = [pasarSegundos(hora) for hora in cali[1]]
 
@@ -154,39 +60,72 @@ bogota[1] = [pasarSegundos(hora) for hora in bogota[1]]
 newYork[0] = [pasarSegundos(hora) for hora in newYork[0]]
 newYork[1] = [pasarSegundos(hora) for hora in newYork[1]]
 
-
+# GRAFICA DATOS OBTENIDOS 
 # plot(cali,math.ceil(math.sqrt(len(cali[0]))),math.ceil(math.sqrt(len(cali[1]))))
 # plot(bogota, math.ceil(math.sqrt(len(bogota[0]))),math.ceil(math.sqrt(len(bogota[1]))))
 # plot(newYork, math.ceil(math.sqrt(len(newYork[0]))),math.ceil(math.sqrt(len(newYork[1]))))
+
+
+cali[0] = util.normalizarMedia(cali[0])
+cali[1] = util.normalizarMedia(cali[1])
+
+bogota[0] = util.normalizarMedia(bogota[0])
+bogota[1] = util.normalizarMedia(bogota[1])
+
+newYork[0] = util.normalizarMedia(newYork[0])
+newYork[1] = util.normalizarMedia(newYork[1])
+
+MEDIA_SALIDA_BG = util.media(bogota[0])
+MEDIA_LLEGADA_BG = util.media(bogota[1])
+
+MEDIA_SALIDA_NY = util.media(newYork[0])
+MEDIA_LLEGADA_NY= util.media(newYork[1])
+
+VARIANZA_SALIDA_BG = util.varianza(bogota[0], MEDIA_SALIDA_BG)
+VARIANZA_LLEGADA_BG = util.varianza(bogota[1], MEDIA_LLEGADA_BG)
+
+VARIANZA_SALIDA_NY = util.varianza(newYork[0], MEDIA_SALIDA_NY)
+VARIANZA_LLEGADA_NY= util.varianza(newYork[1], MEDIA_LLEGADA_NY)
+
+
+# PRUEBA DE CHICIADRADO CALI
 print("Salidas Cali")
-ChiCuadrado.chiCuadradoTabla(util.normalizarMedia(cali[0]), 0.05)  
+ChiCuadrado.chiCuadradoTabla(cali[0], 0.05)  
 print("Llegadas Cali")
-ChiCuadrado.chiCuadradoTabla(util.normalizarMedia(cali[1]), 0.05)  
-
-print("Salidas Bogota")
-ChiCuadrado.chiCuadradoTabla(util.normalizarMedia(bogota[0]), 0.05)  
-print("Llegadas Bogota")
-ChiCuadrado.chiCuadradoTabla(util.normalizarMedia(bogota[1]), 0.05)  
-
-print("Salidas NewYork")
-ChiCuadrado.chiCuadradoTabla(util.normalizarMedia(newYork[0]), 0.05) 
-print("Llegadas NewYork") 
-ChiCuadrado.chiCuadradoTabla(util.normalizarMedia(newYork[1]), 0.05)  
+ChiCuadrado.chiCuadradoTabla(cali[1], 0.05)  
 
 
+# PRUEBA DE NORMAL TEST BOGOTA - NY
 
-# plot([util.normalizarMedia(cali[0]),util.normalizarMedia(cali[1])],math.ceil(math.sqrt(len(cali[0]))),math.ceil(math.sqrt(len(cali[1]))) )
-# plot([util.normalizarMedia(bogota[0]),util.normalizarMedia(bogota[1])], math.ceil(math.sqrt(len(bogota[0]))),math.ceil(math.sqrt(len(bogota[1]))))
-# plot([util.normalizarMedia(newYork[0]),util.normalizarMedia(newYork[1])],math.ceil(math.sqrt(len(newYork[0]))),math.ceil(math.sqrt(len(newYork[1]))))
+alpha = 1e-20
+
+k2, p = stats.normaltest(bogota[0])
+print("BOGOTA LLEGADA: ","K2", k2, "P", p)
+
+if(p < alpha):
+    print("BOGOTA LLEGADA CUMPLE DISTRIBUCION NORMAL")
+
+k2, p = stats.normaltest(bogota[0])
+print("BOGOTA SALIDA: ","K2", k2, "P", p)
 
 
-# SIMULACION 1
+if(p < alpha):
+    print("BOGOTA SALIDA CUMPLE DISTRIBUCION NORMAL")
 
-# VARIABLES DE ENTRADA
-# Tiempo de llegada
-# Tiempo de salida
-# Retrasos
-# Cancelaciones
+k2, p = stats.normaltest(newYork[0])
+print("NY LLEGADA: ","K2", k2, "P", p)
+
+if(p < alpha):
+    print("NY LLEGADA CUMPLE DISTRIBUCION NORMAL")
+
+k2, p = stats.normaltest(newYork[0])
+print("NY SALIDA: ","K2", k2, "P", p)
+
+if(p < alpha):
+    print("NY SALIDA CUMPLE DISTRIBUCION NORMAL")
+
+
+# SIMULACION 
 
 #Datos de la simulación
 SEMILLA = 490
@@ -203,9 +142,6 @@ SALIDA_USO_PISTA = [10,30] #cuanto demora un avion en despegar
 
 PROBABILIDAD_SALIDA_CANCELACIONES = 0.05 
 
-#Variables de estado
-
-
 #Variables de desempeño
 
 CANTIDAD_VUELOS_ATERRIZAR = 0
@@ -221,20 +157,28 @@ ESPERA_LLEGADA = numpy.array([])
 ESPERA_SALIDA = numpy.array([])
 
 
-def llegada(env, aviones, servidor):
+def llegada(env, aviones, servidor, normal = False, mu = 0, sigma = 0):
 
     for i in range(aviones):
+
             c = cliente(env, 'avll%02d' % i, servidor, True)
             env.process(c)
-            tiempo_llegada = random.uniform(LLEGADA_AVIONES[0],LLEGADA_AVIONES[1])
+            if(normal):
+                tiempo_llegada = abs(random.normalvariate(mu, sigma)*55) 
+            else:
+                tiempo_llegada = random.uniform(LLEGADA_AVIONES[0],LLEGADA_AVIONES[1])
             yield env.timeout(tiempo_llegada)
 
-def salida(env, aviones, servidor):
+def salida(env, aviones, servidor, normal = False, mu = 0, sigma = 0):
 
     for i in range(aviones):
+
             c = cliente(env, 'avss%02d' % i, servidor, False)
             env.process(c)
-            tiempo_salida = random.uniform(SALIDA_AVIONES[0],SALIDA_AVIONES[1])
+            if(normal):
+                tiempo_salida = abs(random.normalvariate(mu, sigma)*30)
+            else:
+                tiempo_salida = random.uniform(SALIDA_AVIONES[0],SALIDA_AVIONES[1])
             yield env.timeout(tiempo_salida)
 
 def cliente(env, nombre, servidor, llega):
@@ -313,20 +257,20 @@ def cliente(env, nombre, servidor, llega):
     
 #Inicio de la simulación
 
+# #CALI
 print('Areopuerto cali')
 random.seed(SEMILLA)
 env = simpy.Environment()
-
-#escenarios
-CANTIDAD_PISTAS = 1
+CANTIDAD_PISTAS = 2
+AVIONES_SALIDA =  30
+AVIONES_LLEGADA = 30
 #Inicio del proceso y ejecución
 servidor = simpy.Resource(env, capacity=CANTIDAD_PISTAS)
 env.process(llegada(env, AVIONES_LLEGADA, servidor))
 env.process(salida(env, AVIONES_SALIDA, servidor))
 env.run()
 
-
-#desempeño
+#variables de desempeño
 print("Cola máxima ",MAX_COLA)
 print("Cola máxima aterrizar ",MAX_CANTIDAD_VUELOS_ATERRIZAR)
 print("Cola máxima despegar ",MAX_CANTIDAD_VUELOS_DESPEGAR)
@@ -338,5 +282,80 @@ print("Tiempo promedio de espera total",'%7.2f'%(numpy.mean(ESPERA_AVIONES)))
 print("Tiempo promedio de espera aviones por aterrizar",'%7.2f'%(numpy.mean(ESPERA_LLEGADA)))
 print("Tiempo promedio de espera aviones por despegar",'%7.2f'%(numpy.mean(ESPERA_SALIDA)))
 
+#BOGOTA
+
+CANTIDAD_VUELOS_ATERRIZAR = 0
+CANTIDAD_VUELOS_DESPEGAR = 0
+
+MAX_CANTIDAD_VUELOS_ATERRIZAR = 0
+MAX_CANTIDAD_VUELOS_DESPEGAR = 0
+
+COLA = 0
+MAX_COLA = 0
+ESPERA_AVIONES = numpy.array([])
+ESPERA_LLEGADA = numpy.array([])
+ESPERA_SALIDA = numpy.array([])
 
 
+print('Areopuerto Bogota')
+random.seed(SEMILLA)
+env = simpy.Environment()
+CANTIDAD_PISTAS = 2
+AVIONES_SALIDA =  30
+AVIONES_LLEGADA = 30
+#Inicio del proceso y ejecución
+servidor = simpy.Resource(env, capacity=CANTIDAD_PISTAS)
+env.process(llegada(env, AVIONES_LLEGADA, servidor, True, MEDIA_LLEGADA_BG, math.sqrt(VARIANZA_LLEGADA_BG)))
+env.process(salida(env, AVIONES_SALIDA, servidor, True, MEDIA_SALIDA_BG, math.sqrt(VARIANZA_SALIDA_BG)))
+env.run()
+
+#variables de desempeño
+print("Cola máxima ",MAX_COLA)
+print("Cola máxima aterrizar ",MAX_CANTIDAD_VUELOS_ATERRIZAR)
+print("Cola máxima despegar ",MAX_CANTIDAD_VUELOS_DESPEGAR)
+print("Tiempo de espera total",'%7.2f'%(numpy.sum(ESPERA_AVIONES)))
+print("Tiempo de espera aviones por aterrizar",'%7.2f'%(numpy.sum(ESPERA_LLEGADA)))
+print("Tiempo de espera aviones por despegar",'%7.2f'%(numpy.sum(ESPERA_SALIDA)))
+
+print("Tiempo promedio de espera total",'%7.2f'%(numpy.mean(ESPERA_AVIONES)))
+print("Tiempo promedio de espera aviones por aterrizar",'%7.2f'%(numpy.mean(ESPERA_LLEGADA)))
+print("Tiempo promedio de espera aviones por despegar",'%7.2f'%(numpy.mean(ESPERA_SALIDA)))
+
+# #NEWYORK
+
+CANTIDAD_VUELOS_ATERRIZAR = 0
+CANTIDAD_VUELOS_DESPEGAR = 0
+
+MAX_CANTIDAD_VUELOS_ATERRIZAR = 0
+MAX_CANTIDAD_VUELOS_DESPEGAR = 0
+
+COLA = 0
+MAX_COLA = 0
+ESPERA_AVIONES = numpy.array([])
+ESPERA_LLEGADA = numpy.array([])
+ESPERA_SALIDA = numpy.array([])
+
+
+print('Areopuerto NY')
+random.seed(SEMILLA)
+env = simpy.Environment()
+CANTIDAD_PISTAS = 2
+AVIONES_SALIDA =  30
+AVIONES_LLEGADA = 30
+#Inicio del proceso y ejecución
+servidor = simpy.Resource(env, capacity=CANTIDAD_PISTAS)
+env.process(llegada(env, AVIONES_LLEGADA, servidor, True, MEDIA_LLEGADA_NY, math.sqrt(VARIANZA_LLEGADA_NY)))
+env.process(salida(env, AVIONES_SALIDA, servidor, True, MEDIA_SALIDA_NY, math.sqrt(VARIANZA_SALIDA_NY)))
+env.run()
+
+#variables de desempeño
+print("Cola máxima ",MAX_COLA)
+print("Cola máxima aterrizar ",MAX_CANTIDAD_VUELOS_ATERRIZAR)
+print("Cola máxima despegar ",MAX_CANTIDAD_VUELOS_DESPEGAR)
+print("Tiempo de espera total",'%7.2f'%(numpy.sum(ESPERA_AVIONES)))
+print("Tiempo de espera aviones por aterrizar",'%7.2f'%(numpy.sum(ESPERA_LLEGADA)))
+print("Tiempo de espera aviones por despegar",'%7.2f'%(numpy.sum(ESPERA_SALIDA)))
+
+print("Tiempo promedio de espera total",'%7.2f'%(numpy.mean(ESPERA_AVIONES)))
+print("Tiempo promedio de espera aviones por aterrizar",'%7.2f'%(numpy.mean(ESPERA_LLEGADA)))
+print("Tiempo promedio de espera aviones por despegar",'%7.2f'%(numpy.mean(ESPERA_SALIDA)))

@@ -67,4 +67,16 @@ def acumula(datos):
             continue
         datos_acumulados.append(dato+datos_acumulados[index-1])
     return datos_acumulados
-    
+
+
+def media(datos):
+    val = 0
+    for dato in datos:
+        val += dato
+    return val/len(datos)
+
+def varianza(datos, media):
+    val = 0
+    for dato in datos:
+        val += math.pow((dato - media),2)
+    return val/len(datos)    
